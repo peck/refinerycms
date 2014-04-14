@@ -13,7 +13,9 @@ module Refinery
     validates :file, :presence => true
     validates_with FileSizeValidator
 
-    delegate :ext, :size, :mime_type, :url, :to => :file
+    delegate :ext, :size, :mime_type, :url, :remote_url, :to => :file
+
+    aslias_method :remote_url, :url
 
     # used for searching
     def type_of_content
